@@ -6,8 +6,8 @@ const LoadingBar = (): JSX.Element => {
 	return (
 		<div className='w-full h-full'>
 			<BarLoader
-				color='red'
-				height='1.1vw'
+				color='green'
+				height='1vw'
 				cssOverride={{ width: "100%" }}
 			/>
 		</div>
