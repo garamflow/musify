@@ -19,7 +19,6 @@ interface PlaylistNavigatorProps {
 
 export const PlaylistNavigator = ({ playlist }: { playlist: PlaylistNavigatorProps }) => {
 	const { id, owner, playlistName, songList } = playlist;
-	console.log(playlist);
 
 	const onClickPlay = () => {};
 
