@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import React, { useMemo } from "react";
 import { FiPlus, FiMusic, FiCompass } from "react-icons/fi";
 import { GoHome } from "react-icons/go";
+import { dummyPlaylistArray } from "@/lib/dummyData";
+import { PlaylistNavigator } from "@/components/elements/PlaylistNavigator";
 
 const Navigator = () => {
 	const pathname = usePathname();
@@ -41,6 +43,18 @@ const Navigator = () => {
 					<FiPlus size={24} />
 					<span>New Playlist</span>
 				</div>
+			</section>
+			<section>
+				<ul className='flex flex-col'>
+					{dummyPlaylistArray.map((playlist) => {
+						return (
+							<PlaylistNavigator
+								key={playlist.id}
+								playlist={playlist}
+							/>
+						);
+					})}
+				</ul>
 			</section>
 		</div>
 	);
