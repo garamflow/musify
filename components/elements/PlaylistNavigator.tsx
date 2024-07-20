@@ -2,7 +2,7 @@
 import React from "react";
 import { IoMdPlayCircle } from "react-icons/io";
 
-interface Songlist {
+interface SongList {
 	channelId: number;
 	name: string;
 	channel: string;
@@ -10,18 +10,16 @@ interface Songlist {
 	imageSrc: string;
 }
 
-interface Playlist {
+interface PlaylistNavigatorProps {
 	id: number;
 	owner: string;
 	playlistName: string;
-	songlist: Songlist[];
-}
-interface PlaylistNavigatorProps {
-	playlist: Playlist;
+	songList: SongList[];
 }
 
-export const PlaylistNavigator = ({ playlist }: PlaylistNavigatorProps) => {
-	const { id, owner, playlistName, songlist } = playlist;
+export const PlaylistNavigator = ({ playlist }: { playlist: PlaylistNavigatorProps }) => {
+	const { id, owner, playlistName, songList } = playlist;
+	console.log(playlist);
 
 	const onClickPlay = () => {};
 
