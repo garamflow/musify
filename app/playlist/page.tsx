@@ -1,6 +1,6 @@
 import React from "react";
 
-const page = (props) => {
+const page = () => {
 	return <div>playlist</div>;
 };
 
