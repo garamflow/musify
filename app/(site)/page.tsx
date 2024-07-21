@@ -1,15 +1,31 @@
 import Category from "@/app/(site)/components/Category";
-import { sleep } from "@/lib/utils";
+import PagePadding from "@/components/PagePadding";
+import PlaylistCarousel from "@/components/PlaylistCarousel";
+import UserIcon from "@/components/UserIcon";
+import { dummyPlaylistArray } from "@/lib/dummyData";
 import React from "react";
 
 const page = async () => {
-	await sleep(2000);
+	const dummyPlaylistArray1 = [...dummyPlaylistArray];
+
 	return (
-		<div className='min-h-[600px]'>
-			<div className='mt-9'>
+		<PagePadding>
+			<div className='min-h-[600px]'>
+				<div className='mt-9'></div>
 				<Category />
+				<div className='mt-12'></div>
+				<PlaylistCarousel
+					playlist={[...dummyPlaylistArray1]}
+					Thumbnail={
+						<div className='w-[56px] h-[56px]'>
+							<UserIcon />
+						</div>
+					}
+					title='Replay'
+					subTitle='Youtube'
+				/>
 			</div>
-		</div>
+		</PagePadding>
 	);
 };
 
