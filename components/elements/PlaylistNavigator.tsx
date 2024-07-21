@@ -1,23 +1,9 @@
 "use client";
+import { Playlist } from "@/types";
 import React from "react";
 import { IoMdPlayCircle } from "react-icons/io";
 
-interface SongList {
-	channelId: number;
-	name: string;
-	channel: string;
-	src: string;
-	imageSrc: string;
-}
-
-interface PlaylistNavigatorProps {
-	id: number;
-	owner: string;
-	playlistName: string;
-	songList: SongList[];
-}
-
-export const PlaylistNavigator = ({ playlist }: { playlist: PlaylistNavigatorProps }) => {
+export const PlaylistNavigator = ({ playlist }: { playlist: Playlist }) => {
 	const { id, owner, playlistName, songList } = playlist;
 
 	const onClickPlay = () => {};
