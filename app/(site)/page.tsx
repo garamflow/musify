@@ -18,7 +18,7 @@ const page = async () => {
 					playlist={[...dummyPlaylistArray1]}
 					Thumbnail={
 						<div className='w-[56px] h-[56px]'>
-							<UserIcon />
+							<UserIcon size={"lg"} />
 						</div>
 					}
 					title='Replay'
