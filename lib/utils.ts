@@ -17,3 +17,14 @@ export function getRandomElementFromArray<T>(arr: T[]): T | undefined {
 	const len = arr?.length;
 	return arr[getRandomInt(0, len - 1)];
 }
+
+export function chunkArray<T>(arr: T[], chunkSize: number): T[][] {
+	if (chunkSize <= 0) throw new Error("chunkSize가 0보다 커야합니다.");
+
+	const resultArray: T[][] = [];
+	for (let i = 0; i < arr.length; i += chunkSize) {
+		const chunk = arr.slice(i, i + chunkSize);
+		resultArray.push(chunk);
+	}
+	return resultArray;
+}
