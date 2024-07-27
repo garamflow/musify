@@ -7,7 +7,7 @@ const HeaderBgChanger = ({ imageSrc }: { imageSrc: string | undefined }) => {
 
 	useEffect(() => {
 		if (imageSrc) setHeaderImageSrc(imageSrc);
-	}, [imageSrc]);
+	}, [imageSrc, setHeaderImageSrc]);
 
 	return <div>HeaderBgChanger</div>;
 };
