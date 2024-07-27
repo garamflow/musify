@@ -5,6 +5,7 @@ import { getRandomElementFromArray } from "@/lib/utils";
 import { permanentRedirect } from "next/navigation";
 import PagePadding from "@/components/PagePadding";
 import PlaylistHead from "@/components/PlaylistHead";
+import SongCardExpand from "@/components/SongCardExpand";
 
 interface PlaylistProps {
 	searchParams: {
@@ -24,6 +25,17 @@ const page = async (props: PlaylistProps) => {
 			<HeaderBgChanger imageSrc={imageSrc} />
 			<div className='mt-12'></div>
 			<PlaylistHead playlist={playlist} />
+			<div className='mt-12'></div>
+			<section className='flex flex-col gap-2'>
+				{playlist.songList.map((song, idx) => {
+					return (
+						<SongCardExpand
+							key={idx}
+							song={song}
+						/>
+					);
+				})}
+			</section>
 		</PagePadding>
 	);
 };
