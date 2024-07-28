@@ -19,7 +19,7 @@ const PlayerContent = () => {
 
 	const isLoading = activeSong?.src && state.buffered?.length === 0;
 
-	const onClickPreBtn = () => {};
+	const onClickPrevBtn = () => {};
 	const onClickStartBtn = () => {
 		controls.play();
 	};
@@ -46,7 +46,7 @@ const PlayerContent = () => {
 					<IoPlaySkipBackSharp
 						size={24}
 						className='cursor-pointer'
-						onClick={onClickPreBtn}
+						onClick={onClickPrevBtn}
 					/>
 					{isLoading ? (
 						<ClipLoader color='#ffff' />
