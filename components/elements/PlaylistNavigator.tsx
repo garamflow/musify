@@ -1,12 +1,17 @@
 "use client";
+import usePlayerState from "@/hooks/usePlayerState";
 import { Playlist } from "@/types";
 import React from "react";
 import { IoMdPlayCircle } from "react-icons/io";
 
 export const PlaylistNavigator = ({ playlist }: { playlist: Playlist }) => {
+	const { setSongQueue } = usePlayerState();
+
 	const { id, owner, playlistName, songList } = playlist;
 
-	const onClickPlay = () => {};
+	const onClickPlay = () => {
+		setSongQueue(songList);
+	};
 
 	return (
 		<li className='mx-3 px-4 h-[56px] flex flex-row justify-between items-center hover:bg-neutral-700 rounded-lg group'>
