@@ -6,12 +6,19 @@ import IconButton from "@/components/elements/IconButton";
 import { AiOutlineCaretDown, AiOutlineCaretUp } from "react-icons/ai";
 import { FaCircle } from "react-icons/fa";
 import { FiPlayCircle, FiThumbsDown, FiThumbsUp, FiMoreVertical } from "react-icons/fi";
+import usePlayerState from "@/hooks/usePlayerState";
 
 interface SongCardProps {
 	song: TopSong;
 }
 
 const SongCard = ({ song }: SongCardProps) => {
+	const { setSongQueue } = usePlayerState();
+
+	const onClickPlay = () => {
+		setSongQueue([song]);
+	};
+
 	return (
 		<article className='flex flex-row gap-4 h-[48px] w-full relative group'>
 			<div className='w-[48px] h-[48px] relative'>
@@ -21,7 +28,10 @@ const SongCard = ({ song }: SongCardProps) => {
 					fill
 					className='object-cover'
 				/>
-				<section className='hidden group-hover:flex absolute top-0 w-[48px] h-[48px] items-center justify-center bg-black cursor-pointer'>
+				<section
+					onClick={onClickPlay}
+					className='hidden group-hover:flex absolute top-0 w-[48px] h-[48px] items-center justify-center bg-black cursor-pointer'
+				>
 					<FiPlayCircle size={20} />
 				</section>
 			</div>
