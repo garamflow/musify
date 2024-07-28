@@ -6,10 +6,10 @@ interface WhiteButtonProps {
 	icon: React.ReactNode;
 	label: string;
 	className?: string;
-	onClick: () => void;
+	onClick?: () => void;
 }
 
-const WhiteButton = ({ icon = <></>, label, className = "", onClick, ...props }: WhiteButtonProps) => {
+const WhiteButton = ({ icon = <></>, label, className = "", onClick = () => {}, ...props }: WhiteButtonProps) => {
 	return (
 		<div
 			onClick={onClick}
