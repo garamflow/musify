@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import usePlayerState from "@/hooks/usePlayerState";
 import Image from "next/image";
 import { useAudio } from "react-use";
@@ -11,22 +11,47 @@ import { RxLoop } from "react-icons/rx";
 import { Slider as PlayerSlider } from "@/components/ui/playerSlider";
 
 const PlayerContent = () => {
-	const { activeSong } = usePlayerState();
+	const { activeSong, previousQueue, nextQueue, playBack, playNext } = usePlayerState();
 	const [audio, state, controls, ref] = useAudio({
 		src: activeSong?.src || "",
-		autoPlay: false,
+		autoPlay: true,
 	});
 
 	const isLoading = activeSong?.src && state.buffered?.length === 0;
 
-	const onClickPrevBtn = () => {};
+	const onClickPrevBtn = () => {
+		if (state.playing && state.time > 10) {
+			controls.seek(0);
+			return;
+		}
+		if (previousQueue.length === 0) return;
+		playBack();
+	};
 	const onClickStartBtn = () => {
-		controls.play();
+		if (activeSong) {
+			controls.play();
+		} else {
+			playNext();
+		}
 	};
 	const onClickPauseBtn = () => {
 		controls.pause();
 	};
-	const onClickNextBtn = () => {};
+	const onClickNextBtn = useCallback(() => {
+		if (nextQueue.length === 0) {
+			controls.pause();
+		} else {
+			playNext();
+		}
+	}, [controls, playNext, nextQueue]);
+
+	useEffect(() => {
+		const refAudio = ref.current;
+		refAudio?.addEventListener("ended", onClickNextBtn);
+		return () => {
+			refAudio?.removeEventListener("ended", onClickNextBtn);
+		};
+	}, [ref, onClickNextBtn]);
 
 	return (
 		<div className='h-full w-full relative'>
@@ -38,6 +63,7 @@ const PlayerContent = () => {
 					onValueChange={(value) => {
 						controls.seek(value[0]);
 					}}
+					max={state.duration}
 				/>
 			</div>
 			{audio}
