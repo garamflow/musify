@@ -28,7 +28,7 @@ const usePlayerState = create<PlayerState>((set) => ({
 				activeSong: currentSong,
 				previousQueue: prevSong ? [prevSong, ...prev.previousQueue] : prev.previousQueue,
 				nextQueue: [...cloneSongList],
-				isVisiblePlayer: true,
+				isPlayerVisible: true,
 			};
 		}),
 	playNext: () =>
