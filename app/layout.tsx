@@ -8,8 +8,8 @@ import PlayerWrapper from "@/components/player/PlayerWrapper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Youtube Music",
-	description: "Youtube Music",
+	title: "Musify",
+	description: "Musify",
 };
 
 export default async function RootLayout({

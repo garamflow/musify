@@ -25,7 +25,7 @@ const page = async () => {
 						</div>
 					}
 					title='Replay'
-					subTitle='Youtube'
+					subTitle='Musify'
 				/>
 				<div className='mt-20'></div>
 
@@ -39,14 +39,14 @@ const page = async () => {
 				<PlaylistCarousel
 					playlistArray={[...dummyPlaylistArray1]}
 					title='Community'
-					subTitle='Youtube'
+					subTitle='Musify'
 				/>
 				<div className='mt-20'></div>
 
 				<PlaylistCarousel
 					playlistArray={[...dummyPlaylistArray1]}
 					title='Cover & Remix'
-					subTitle='Youtube'
+					subTitle='Musify'
 				/>
 			</div>
 		</PagePadding>
